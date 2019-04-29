@@ -1,0 +1,13 @@
+.cont{	
+  display: flex;  
+  justify-content: space-evenly;
+  min-height: 400px;
+}
+
+@media all and (max-width: 600px) {
+  .cont {
+    -webkit-flex-flow: column wrap;
+    flex-flow: column wrap;
+    padding: 0;
+  }
+}

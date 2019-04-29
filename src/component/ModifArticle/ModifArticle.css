@@ -1,0 +1,76 @@
+
+.custom-file-input2 {
+  color: transparent;
+}
+.custom-file-input2::-webkit-file-upload-button {
+  visibility: hidden;
+}
+.custom-file-input2::before {
+  content: 'Select some files';
+  color: black;
+  display: inline-block;  
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  padding: 10px 8px;
+  outline: none;
+  width:105px;
+  -webkit-user-select: none;
+  cursor: pointer;
+  text-shadow: 1px 1px #fff;
+  
+}
+
+.custom-file-input2:focus {  
+  outline: 0;
+}
+
+.custom-file-input2:active::before {
+  background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
+   
+}
+
+.modArticleStyle{
+ max-width: 80%;
+ margin-left: auto;
+ margin-right: auto; 
+}
+
+
+
+.modinputStype{
+  width: 80%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+
+
+.modsubmit{
+  width: 100px;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.modsubmit:hover{
+background-color: #45a049;
+}
+
+.modpStyle{
+	text-align: left;
+	margin-left: 10%;
+	margin-bottom: -5px;
+}
+
+
+  
+  
+ 

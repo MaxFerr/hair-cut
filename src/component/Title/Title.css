@@ -1,0 +1,22 @@
+.jumbotron{
+	text-align: center;
+	background: url(https://images.unsplash.com/photo-1491895200222-0fc4a4c35e18?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=7ef79a01f0a12450049b7d20cd10f93c&auto=format&fit=crop&w=967&q=80);
+	background-position: center;
+	background-size: cover;
+}
+
+.addArticleBtnStyle{
+  width: 100px;
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  box-shadow: 2px 2px 5px grey;
+}
+
+.addArticleBtnStyle:hover{
+background-color: #45a049;
+}

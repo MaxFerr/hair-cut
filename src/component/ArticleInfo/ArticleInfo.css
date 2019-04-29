@@ -1,0 +1,86 @@
+.submitCommentStyle{
+  width:60px;
+  background-color: #4CAF50;
+  color: white;
+  padding: 4px;  
+  margin-right: 2px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.submitCommentStyle:hover{
+background-color: #45a049;
+}
+
+.AddCommentStyle{
+  width:150px;
+  background-color: #4CAF50;
+  color: white;
+  padding: 4px;  
+  margin-right: 2px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.AddCommentStyle:hover{
+background-color: #45a049;
+}
+
+
+#jumbotronArticle{
+    text-align: center;    
+    background-position: center;
+    background-size: cover;    
+    opacity: 0.7;
+    border-radius: 10px;
+}
+
+.textareaStyle{
+	height: auto;
+	display: block;
+    width: 100%;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    overflow: auto;
+}
+
+
+.commentStyle2{
+    margin-top: 10px;
+    text-align:center;
+    max-width:600px;
+    margin-right:auto;
+    margin-left:auto;
+    background-color:rgba(0,0,0,0.04);
+    padding:5px;
+    box-shadow: 2px 2px 5px grey;
+    border-radius:5px;
+}
+
+@media all and (max-width: 600px) {
+ .commentStyle2{
+    margin-top: 10px;
+    text-align:center;
+    max-width:600px;
+    margin-right:2%;
+    margin-left:2%;
+    background-color:rgba(0,0,0,0.04);
+    padding:5px;
+    box-shadow: 2px 2px 5px grey;
+    border-radius:10px;
+}
+}

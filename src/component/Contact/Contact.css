@@ -1,0 +1,65 @@
+.iptStyle{
+	display: block;
+    width: 100%;
+    box-sizing: border-box;
+    outline: none;    
+    border: 0;
+    padding: 10px 15px;
+    background: #1E242C;
+    font-size: 12pt;
+    margin-bottom: 10px;
+    color: #fff;
+    border-radius: 5px;
+}
+
+.textareaStyle{
+	display: block;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
+    outline: none;
+    border: 0;
+    padding: 10px 15px;
+    background: #1E242C;
+    font-size: 12pt;
+    margin-bottom: 3px;
+    color: #fff;
+}
+
+form{
+	margin-left: 5%;
+	margin-right: 5%;
+}
+
+.iptStyle2{     
+    box-sizing: border-box;
+    border-radius: 5px;
+    outline: none;
+    border: 0;
+    padding: 10px 15px;
+    background: #1E242C;
+    font-size: 12pt;
+    color: #fff;
+    margin-right: 2px;
+    cursor: pointer;
+}
+
+.iptStyle2:hover{
+    background-color: grey;  
+}
+
+.contactStyle{
+    margin-top: 10px;
+    width:60%;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+@media all and (max-width: 600px) {
+  .contactStyle{
+    margin-top: 10px;
+    width:90%;
+    margin-left:auto;
+    margin-right:auto;
+}
+}

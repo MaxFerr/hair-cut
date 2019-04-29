@@ -1,0 +1,14 @@
+.submitDel{
+  width:60px;
+  background-color: #4CAF50;
+  color: white;
+  padding: 4px;  
+  margin-right: 2px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.submitDel:hover{
+background-color: #45a049;
+}

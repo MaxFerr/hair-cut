@@ -1,0 +1,46 @@
+.App {
+  text-align: center;
+  background-color:rgba(0,0,0,0.04);
+}
+
+.cont{	
+  display: flex;  
+  justify-content: space-evenly;
+  min-height: 500px; 
+}
+
+.mainStyle{ 
+   	background-color:white;
+    margin-right:10%;
+    margin-left:10%;    
+    padding:5px;
+    box-shadow: 2px 2px 5px grey;
+    border-radius:5px;
+    margin-top: -50px;
+    margin-bottom: 10px;    
+}
+
+@media all and (max-width: 600px) {
+  .cont {
+    -webkit-flex-flow: column wrap;
+    flex-flow: column wrap;
+    padding: 0;
+  } 
+}
+
+@media all and (max-width: 1000px) {
+  
+  .mainStyle{ 
+   	background-color:white;
+    margin-right:0;
+    margin-left:0;    
+    padding:0;
+    box-shadow: 0px 0px 0px white;
+    border-radius:0px;
+    margin-top: 0px;
+    margin-bottom: 0px;    
+}
+}
+
+
+

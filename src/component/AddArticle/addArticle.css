@@ -1,0 +1,82 @@
+
+.add-input-container {
+     max-width: 600px;
+     margin-left: auto;
+    margin-right: auto;  
+   }
+
+.custom-file-input {
+  color: transparent;
+}
+.custom-file-input::-webkit-file-upload-button {
+  visibility: hidden;
+}
+.custom-file-input::before {
+  content: 'Select some files';
+  color: black;
+  display: inline-block;  
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  padding: 10px 8px;
+  outline: none;
+  width:105px;
+  -webkit-user-select: none;
+  cursor: pointer;
+  text-shadow: 1px 1px #fff;
+  
+}
+
+.custom-file-input:focus {  
+  outline: 0;
+}
+
+.custom-file-input:active::before {
+  background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
+   
+}
+
+.addArticleStyle{
+ max-width: 100%;
+ margin-left: auto;
+ margin-right: auto; 
+}
+
+
+
+.inputStype{
+  width: 80%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+
+
+.submit{
+  width: 100px;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.submit:hover{
+background-color: #45a049;
+}
+
+.pStyle{
+	text-align: left;
+	margin-left: 10%;
+	margin-bottom: -5px;
+}
+
+
+  
+  
+ 

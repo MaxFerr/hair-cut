@@ -1,0 +1,40 @@
+.RegStyle{
+ max-width: 500px;
+ margin-left: auto;
+ margin-right: auto; 
+}
+
+
+
+.inputRegStype{
+  width: 80%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+
+
+.submitReg{
+  width: 100px;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.submitReg:hover{
+background-color: #45a049;
+}
+
+.pRegStyle{
+	text-align: left;
+	margin-left: 10%;
+	margin-bottom: -5px;
+}
