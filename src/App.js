@@ -52,12 +52,17 @@ class App extends Component {
   }
 
   checkIfAdmIn=(data)=>{
-  console.log(process.env.admin_id)    
-    if(data.m_user_id===process.env.admin_id){
+  fetch('https://powerful-everglades-57723.herokuapp.com/admin')
+  .then(response=>{
+      return response.json()
+    })
+    .then(adminId=>{
+      if(data.m_user_id===adminId){
       this.setState({isAdmIn:true})
     }else{
       this.setState({isAdmIn:false})
-    }
+    }           
+    })
   }
 
   checkIfLoggedIn=(data)=>{
