@@ -52,7 +52,7 @@ class App extends Component {
   }
 
   checkIfAdmIn=(data)=>{    
-    if(data.m_user_id===14){
+    if(data.m_user_id===process.env.admin_id){
       this.setState({isAdmIn:true})
     }else{
       this.setState({isAdmIn:false})
