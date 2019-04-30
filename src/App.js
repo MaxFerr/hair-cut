@@ -57,7 +57,7 @@ class App extends Component {
       return response.json()
     })
     .then(adminId=>{
-      if(data.m_user_id===adminId){
+      if(data.m_user_id===Number(adminId)){
       this.setState({isAdmIn:true})
     }else{
       this.setState({isAdmIn:false})
