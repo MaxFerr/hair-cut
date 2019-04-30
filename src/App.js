@@ -51,7 +51,8 @@ class App extends Component {
       }}) 
   }
 
-  checkIfAdmIn=(data)=>{    
+  checkIfAdmIn=(data)=>{
+  console.log(process.env.admin_id)    
     if(data.m_user_id===process.env.admin_id){
       this.setState({isAdmIn:true})
     }else{
