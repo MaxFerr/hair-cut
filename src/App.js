@@ -52,7 +52,8 @@ class App extends Component {
   }
 
   checkIfAdmIn=(data)=>{
-  fetch('https://powerful-everglades-57723.herokuapp.com/admin')
+  fetch(`https://powerful-everglades-57723.herokuapp.com/admin/${data.m_user_id}`)
+  /*send in the query string data.m_user_id and then check if its the admin server side*/
   .then(response=>{
       return response.json()
     })
