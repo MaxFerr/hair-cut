@@ -69,7 +69,7 @@ class AddArticle extends Component{
 				if(article.m_article_id){
 					const articleMsg=document.getElementById('articleMsg');
 					articleMsg.style.color='green'
-					articleMsg.textContent='Article saved. You will be redirected to main page in 3sec.'					
+					articleMsg.textContent='Article sauvegardé. Vous allez être redirigé vers la page principale dans 3 sec.'					
 					fetch('https://powerful-everglades-57723.herokuapp.com/').then(response=>{
 				      return response.json()
 				    })
@@ -83,7 +83,7 @@ class AddArticle extends Component{
 				}else{
 					const articleMsg=document.getElementById('articleMsg');
 					articleMsg.style.color='red'
-					articleMsg.textContent='Article could not be saved.'					
+					articleMsg.textContent=`L'article n'a pas pu être sauvegardé.`					
 				}				
 			})
 
@@ -169,21 +169,21 @@ class AddArticle extends Component{
 											<br/>
 											{this.state.Image?
 												<p className='pStyle' style={{marginTop:'35px',color:'green'}} ><em>{this.state.Image.name}</em></p>
-												:<p className='pStyle' style={{marginTop:'35px'}}><em>No file selected.</em></p>
+												:<p className='pStyle' style={{marginTop:'35px'}}><em>Aucun fichier sélectionné.</em></p>
 											}		
-												<p className='pStyle' style={{marginTop:'25px'}} >Image link </p>
+												<p className='pStyle' style={{marginTop:'25px'}} >Lien de l'image </p>
 												<input className='inputStype'
 												onChange={this.onLinkchange} 
 												type='text' 
 												placeholder='Link'/>
-												<p className='pStyle' style={{marginTop:'25px'}} >Title </p>
+												<p className='pStyle' style={{marginTop:'25px'}} >Titre </p>
 												<input className='inputStype'
 												onChange={this.onTitlechange} 
 												type='text' 
 												placeholder='Title'/>
-													<p className='pStyle'>Second title </p>
+													<p className='pStyle'>Deuxième titre </p>
 													<input className='inputStype'
-													type='text' placeholder='Second title'
+													type='text' placeholder='Deuxième titre'
 													onChange={this.onSecondTitlechange}
 													/>
 													<p className='pStyle'>Text </p>
@@ -193,7 +193,7 @@ class AddArticle extends Component{
 										placeholder='Text'/>
 										</div>
 										<br/>
-										<p style={{display:'inline-block',marginRight:'5px'}} >Favorite ?  </p><input onChange={this.onFavchange} type='checkbox' />
+										<p style={{display:'inline-block',marginRight:'5px'}} >Favoris ?  </p><input onChange={this.onFavchange} type='checkbox' />
 										<br/>
 										<input className='submit' onClick={this.onAddArticle} type='submit'/>
 										<br/>

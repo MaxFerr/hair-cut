@@ -46,7 +46,7 @@ class MainNavBar extends Component{
 							<button
 							className='submitSearch'
 							onClick={this.onClickSearch}
-							>Search
+							>Cherché
 							</button>
 				</div>
 				</li>

@@ -80,11 +80,11 @@ class ModifArticle extends Component{
 				}
 				setTimeout(onRedirectMod, 3000);
 					erroModif.style.color='green';
-					erroModif.textContent='Article saved. Redirecting to main page.'
-					return "Article saved."
+					erroModif.textContent='Article sauvegardé. Redirection vers la page principale.'
+					return "Article sauvegardé."
 				}else{
 				erroModif.style.color='red';
-				erroModif.textContent='Article could not be saved.'
+				erroModif.textContent=`L'article n'a pas pu être sauvegardé.`
 					return "Article could not be saved."
 				}				
 		})
@@ -199,12 +199,12 @@ class ModifArticle extends Component{
 				?<Redirect to='/' />
 				:(<div>
 					<div style={{minHeight:'1000px'}} >
-				<h1>Modify Article</h1>
-					<p className='modpStyle' style={{marginBottom:'10px'}} >Current Image</p>
+				<h1>Modifier l'article</h1>
+					<p className='modpStyle' style={{marginBottom:'10px'}} >Image actuelle</p>
 					<div style={{maxWidth:'700px',marginLeft:'auto',marginRight:'auto'}} >
 					<img src={this.props.singleArticle.image} alt='modif' style={{width:'80%',height:'auto'}} />
 					</div>
-					<p className='modpStyle'>New Image</p>
+					<p className='modpStyle'>Nouvelle image</p>
 					<input
 					style={{marginTop:'10px',float:'left',marginLeft:'10%'}}
 					className='custom-file-input2' 
@@ -216,20 +216,20 @@ class ModifArticle extends Component{
 					<br/>
 								{this.state.image?
 									<p className='pStyle' style={{marginTop:'35px',color:'green'}} ><em>{this.state.image.name}</em></p>
-									:<p className='pStyle' style={{marginTop:'35px'}}><em>No file selected.</em></p>
+									:<p className='pStyle' style={{marginTop:'35px'}}><em>Aucun fichier sélectionné.</em></p>
 								}
-							<p className='pStyle' style={{marginTop:'25px'}} >Image link </p>
+							<p className='pStyle' style={{marginTop:'25px'}} >Lien de l'image </p>
 												<input className='inputStype'
 												onChange={this.onLinkchange} 
 												type='text' 
 												placeholder={`${this.props.singleArticle.image}`}/>						
-						<p className='modpStyle' style={{marginTop:'20px'}} >Title</p>
+						<p className='modpStyle' style={{marginTop:'20px'}} >Titre</p>
 						<input
 						className='modinputStype' 
 						onChange={this.onTitleChange} 
 						type='text' 
 						placeholder={`${this.props.singleArticle.title}`} />
-							<p className='modpStyle'>Second title</p>
+							<p className='modpStyle'>Deuxième titre</p>
 							<input
 							className='modinputStype'  
 							type='text' placeholder={`${this.props.singleArticle.secondtitle}`}
@@ -242,7 +242,7 @@ class ModifArticle extends Component{
 				type='text' 
 				placeholder={`${this.props.singleArticle.text}`}/>
 				<br/>
-				<p style={{display:'inline-block',marginRight:'5px'}} >Favorite ?  </p><input onChange={this.onFavchange} type='checkbox' />
+				<p style={{display:'inline-block',marginRight:'5px'}} >Favoris ?  </p><input onChange={this.onFavchange} type='checkbox' />
 				<br/>
 				<input
 				className='modsubmit'   

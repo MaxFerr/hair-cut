@@ -25,7 +25,7 @@ class Register extends Component{
 		}else{
 			this.setState({errorEmail:true});			
 			errorEmail.style.color='red';
-			errorEmail.textContent='Invalid email.'
+			errorEmail.textContent='Email invalide.'
 			
 		}
 	}
@@ -36,7 +36,7 @@ class Register extends Component{
 		if(event.target.value.length<=5 || event.target.value.split('').filter(x => x === '{').length === 1){
 			this.setState({errorPassword:true});			
 			errorPassword.style.color='red';
-			errorPassword.textContent='Password is too short. You need at least 5 characters.'
+			errorPassword.textContent=`Le mot de passe est trop court. Vous avez besoin d'au moins 5 caractères.`
 			
 		}else{
 			this.setState({errorPassword:false})
@@ -50,7 +50,7 @@ class Register extends Component{
 		if(event.target.value.length<3 || event.target.value.split('').filter(x => x === '{').length === 1){
 			this.setState({errorName:true});			
 			errorName.style.color='red';
-			errorName.textContent='Username is too short. You need at least 3 characters.'
+			errorName.textContent=`Le nom d'utilisateur est trop court. Vous avez besoin d'au moins 3 caractères.`
 		}else{
 			this.setState({errorName:false})						
 			errorName.textContent='';
@@ -83,7 +83,7 @@ class Register extends Component{
 	}else{
 		const invalidForm=document.getElementById('invalidForm');
 		invalidForm.style.color='red';
-		invalidForm.textContent='Invalid data.';
+		invalidForm.textContent='Données invalides.';
 		}		
 	}
 	
@@ -95,13 +95,13 @@ class Register extends Component{
 		}else{
 			return (
 				<div className='RegStyle' style={{minHeight:'450px'}} >
-					<h1>Register</h1>
-					<p className='pRegStyle'>Name </p>
+					<h1>S'enregister</h1>
+					<p className='pRegStyle'>Nom </p>
 					<input
 					className='inputRegStype' 
 					onChange={this.onNamechange} 
 					type='text' 
-					placeholder='Name'/>
+					placeholder='Nom'/>
 					<br/>
 					<span id='errorName'></span>			
 					<p className='pRegStyle'>Email </p>
@@ -112,8 +112,8 @@ class Register extends Component{
 					placeholder='Email'/>
 					<br/>
 					<span id='errorEmail'></span>
-					<p className='pRegStyle'>Password </p>
-					<input className='inputRegStype' type='password' placeholder='Password'
+					<p className='pRegStyle'>Mot de passe </p>
+					<input className='inputRegStype' type='password' placeholder='Mot de passe'
 					onChange={this.onPasschange}
 					/>
 					<br/>

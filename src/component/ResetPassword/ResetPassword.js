@@ -54,11 +54,11 @@ class ResetPassword extends React.Component{
 				}
 			})			
 		}if(!this.state.errorPassword) {
-			b.innerHTML="Password should be at least 6 characters long."
+			b.innerHTML="Le mot de passe doit comporter au moins 6 caractères."
 		}else{
 			b.innerHTML=""
 		}if(this.state.passwordChange!==this.state.passwordChangeConfirm) {
-			a.innerHTML="Passwords doesn't match.";
+			a.innerHTML="Les mots de passe ne correspondent pas.";
 		}else{
 			a.innerHTML=""
 		}
@@ -83,9 +83,9 @@ class ResetPassword extends React.Component{
 			if(this.state.isValidToken){
 				return (			
 					<div id='forgetDiv' style={{width: 'auto' ,height: '350px'}}>
-					<h1 >Change your password</h1>
+					<h1 >Changer votre mot de passe</h1>
 					<div className="ResetStyle">
-					<p className='pResetStyle' >New password</p>
+					<p className='pResetStyle' >Nouveau mot de passe</p>
 					<input 
 					className="inputResetStype" 
 					type="password" 
@@ -96,7 +96,7 @@ class ResetPassword extends React.Component{
 					</div>
 					<div >					
 					<div className="ResetStyle">
-					<p className='pResetStyle'>Confirm password</p>
+					<p className='pResetStyle'>Confirmez le mot de passe</p>
 					<input
 					className="inputResetStype"  					 
 					type="password" 
@@ -119,14 +119,14 @@ class ResetPassword extends React.Component{
 			}else{
 				return (
 					<div id='correctDiv' style={{width: 'auto' ,minHeight: '300px'}}>
-					<p style={{color:'red'}}>Password reset token is invalid or has expired.</p>
+					<p style={{color:'red'}}>Le token de réinitialisation du mot de passe est invalide ou a expiré.</p>
 					</div>
 					)
 			}
 		}else{
 			return (
 				<div id='correctDiv' style={{width: 'auto' ,minHeight: '300px'}}>
-				<p style={{color:'green'}} >Password has been changed.</p>
+				<p style={{color:'green'}} >Le mot de passe a été changé.</p>
 				</div>
 				)
 		}

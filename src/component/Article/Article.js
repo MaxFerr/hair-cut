@@ -2,12 +2,15 @@ import React from 'react';
 import {Link} from "react-router-dom";
 import './Article.css';
 import Moment from 'react-moment';
+import AOS from 'aos';
+import 'aos/dist/aos.css'; 
+AOS.init();
 
 
 const Article=({title,secondtitle,onClickArticle,id,image,text,added,favorite,isAdmIn})=>{	
 	
 	return (
-		<div id='test' >		
+		<div id='test' data-aos="fade-in"  data-aos-offset="150" data-aos-duration="800" >		
 		<Link to={`/ArticleInfo/${id}`} onClick={()=>onClickArticle(id)} style={{textDecoration:'none',color:'black'}}>
 		<div ><img  className='hoverImage size' src={image}  alt='test' /></div>		
 		</Link>		
@@ -22,8 +25,8 @@ const Article=({title,secondtitle,onClickArticle,id,image,text,added,favorite,is
 		{isAdmIn 
 			? (<div>
 				<div className='btnStyle' >
-				<Link to={`/ModifArticle/${id}`}><button className='submitDelMod' onClick={()=>onClickArticle(id)} >Modify</button></Link> 
-				<Link to={`/DeleteArticle/${id}`}><button className='submitDelMod' onClick={()=>onClickArticle(id)}>Delete</button></Link>
+				<Link to={`/ModifArticle/${id}`}><button className='submitDelMod' onClick={()=>onClickArticle(id)} >Modifier</button></Link> 
+				<Link to={`/DeleteArticle/${id}`}><button className='submitDelMod' onClick={()=>onClickArticle(id)}>Supprimer</button></Link>
 				</div>
 				<div>
 				<hr className='hrStyle' style={{width:'95%',marginTop:'-15px'}}/>

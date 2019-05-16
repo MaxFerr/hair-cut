@@ -29,9 +29,9 @@ class ForgotPass extends React.Component{
 	})
 	.then(data=>{
 		if(data==='Wrong email !'){			
-				document.getElementById("errorEmail").innerHTML = "Wrong Email !";
+				document.getElementById("errorEmail").innerHTML = "Email incorrecte !";
 			}else {				
-				document.getElementById("correctEmail").innerHTML = "Check your mail box ! A mail has been sent.";
+				document.getElementById("correctEmail").innerHTML = "Vérifiez votre boîte mail! Un mail a été envoyé.";
 				document.getElementById("forgetDiv").style.display = "none";
 				document.getElementById("correctDiv").style.display = "block";
 			}
@@ -47,9 +47,9 @@ render(){
 				<main>
 					<div>
 						
-							<h1>Forgot your password ?</h1>
+							<h1>Mot de passe oublié ?</h1>
 								<div>
-									<label forhtml="email-address">Enter your email address and you will receive a mail shortly :</label> <br/>
+									<label forhtml="email-address">Entrez votre adresse email et vous recevrez un mail sous peu :</label> <br/>
 									<div className='input-container'>
 									<input
 									className='inputForgotStype'									 

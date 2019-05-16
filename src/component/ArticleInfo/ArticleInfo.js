@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import Comment from '../Comment/Comment.js'
 import './ArticleInfo.css';
 import Moment from 'react-moment';
+import AOS from 'aos';
+import 'aos/dist/aos.css'; 
+AOS.init();
 
 class ArticleInfo extends Component{
 	constructor(props){
@@ -37,7 +40,7 @@ class ArticleInfo extends Component{
 				}else{
 					const commentMsg=document.getElementById('commentMsg');
 					commentMsg.style.color='red';
-					commentMsg.textContent='Could not delete that response.'
+					commentMsg.textContent=`Cette réponse n'a pas pu être supprimée.`
 				}
 			})
   }
@@ -71,7 +74,7 @@ class ArticleInfo extends Component{
 				}else{
 					const commentMsg=document.getElementById('commentMsg');
 					commentMsg.style.color='red';
-					commentMsg.textContent='Could not delete that comment.'
+					commentMsg.textContent=`Ce commentaire n'a pas pu être supprimé.`
 				}
 			})
   }
@@ -128,7 +131,7 @@ class ArticleInfo extends Component{
 				const resetField=document.getElementsByTagName('textarea')[0];
 				resetField.value='';
 				const error=document.getElementById('errorComment');
-				error.textContent='Comment sent !'
+				error.textContent='Commentaire envoyé !'
 				error.style.color='green';	
 			fetch(`https://powerful-everglades-57723.herokuapp.com/comments/${this.props.match.params.id}`)
 			.then(response=>{			
@@ -139,7 +142,7 @@ class ArticleInfo extends Component{
 			})
 			}else{
 				const error=document.getElementById('errorComment');				
-				error.textContent='Cannot send that comment.';
+				error.textContent=`Le commentaire n'a pas pu être envoyé.`;
 				error.style.color='red';				
 			}
 		})	
@@ -159,7 +162,7 @@ class ArticleInfo extends Component{
 		}
 
   	return (
-		<div style={{textAlign:'left',marginBottom:'20px'}}>
+		<div data-aos="fade-in"  data-aos-offset="150" data-aos-duration="800"  style={{textAlign:'left',marginBottom:'20px'}}>
 		<span id='commentMsg' 
 		style={{boxShadow: '2px 2px 2px grey', backgroundColor:'rgba(0,0,0,0.04)',borderRadius:'10px'}} >
 		</span>		
@@ -173,11 +176,11 @@ class ArticleInfo extends Component{
 		</div>
 		<br/>
 		<div className='commentStyle2'>
-						<h3 style={{display:'inline-block',marginRight:'20%'}} >Comments</h3>
+						<h3 style={{display:'inline-block',marginRight:'20%'}} >Commentaire</h3>
 						<button
 						className='AddCommentStyle'  
 						onClick={displayDIV}
-						>Add a new comment</button>
+						>Ajouter un commentaire</button>
 						<hr style={{width:'70%',marginTop:'-5px'}} />						
 						<div id='myDIV' style={{height:'150px',display:'none',marginRight:'15%',marginLeft:'15%'}} >
 						{this.props.isLoggedIn
@@ -199,7 +202,7 @@ class ArticleInfo extends Component{
 							:(<div>
 								<textarea
 								className='textareaStyle'
-								placeholder='You need to be logged in to post a message.' 
+								placeholder='Vous devez être connecté pour envoyer un commentaire.' 
 								rows="5" 
 								cols="70" 
 								style={{height:'80px',maxWidth:'90%',marginRight:'auto',marginLeft:'auto'}}

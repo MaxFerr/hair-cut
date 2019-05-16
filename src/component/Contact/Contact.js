@@ -98,7 +98,7 @@ class Contact extends React.Component{
                       style={{height:'70px',marginTop:'-30px',background:'#1E242C'}}              
                       >
                       </textarea>                
-                      <p style={{color:'red'}} >You need to be logged in to send me a message.</p>
+                      <p style={{color:'red'}} >Vous devez être connecté pour m'envoyer un message.</p>
                     </div>
                   }
                   </div>                  

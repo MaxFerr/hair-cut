@@ -56,7 +56,7 @@ class Login extends Component{
 			}else{
 				const loginErrorMsg=document.getElementById('loginErrorMsg');
 				loginErrorMsg.style.color='red';
-				loginErrorMsg.textContent='Wrong email or password.';
+				loginErrorMsg.textContent='Mauvais email ou Mot de passe.';
 				const pass=document.getElementById('pass');
 				pass.value='';
 				}				
@@ -72,21 +72,21 @@ class Login extends Component{
 		}else{
 			return (
 			<div style={{minHeight:'400px'}} className='logStyle' >
-			<h1 >Login</h1>			
+			<h1 >Se connecter</h1>			
 			<p className='pLogStyle'>Email</p>
 			<input
 			className='inputLogStype' 
 			onChange={this.onEmailchange} 
 			type='text' 
 			placeholder='Email'/>
-			<p className='pLogStyle'>Password</p>
+			<p className='pLogStyle'>Mot de passe</p>
 			<input
 			id='pass'
 			className='inputLogStype'  
-			type='password' placeholder='Password'
+			type='password' placeholder='Mot de passe'
 			onChange={this.onPasschange}
 			/><br/>
-			<Link to={`/ForgotPass`}><p>Forgot your password ?</p></Link>
+			<Link to={`/ForgotPass`}><p>Mot de passe oublié ?</p></Link>
 			<input
 			className='submitLog'  
 			type='submit' onClick={this.onLogIn} />

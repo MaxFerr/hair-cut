@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import './CommentCard.css';
 import Moment from 'react-moment';
-
+import AOS from 'aos';
+import 'aos/dist/aos.css'; 
+AOS.init();
 
 class CommentCard extends Component{
 	constructor(props){
@@ -54,7 +56,7 @@ class CommentCard extends Component{
 				const resetField2=document.getElementById(`responseArea${id}`);
 				resetField2.value='';
 				const responseSent=document.getElementById(`responseSent${id}`);
-				responseSent.textContent='Response sent.'
+				responseSent.textContent='Réponse envoyée !'
 				fetch(`https://powerful-everglades-57723.herokuapp.com/commentresponse/${this.props.prm}`)
 				.then(response=>{			
 					return response.json()
@@ -67,7 +69,7 @@ class CommentCard extends Component{
 				const resetField2=document.getElementById(`responseArea${id}`);
 				resetField2.value='';
 				const responseNotSent=document.getElementById(`responseNotSent${id}`);
-				responseNotSent.textContent='Response could not be sent.'
+				responseNotSent.textContent=`La réponse n'a pas pu être envoyée.`
 			}
 		})	
   }
@@ -76,7 +78,7 @@ class CommentCard extends Component{
 	render(){
 		const {comment,name,date,id,onDeleteComment}=this.props;		
 		return(
-			<div className='commentStyle' >		
+			<div data-aos="fade-in"  data-aos-offset="150" data-aos-duration="800" className='commentStyle' >		
 		<div style={{marginLeft:'6%'}}>
 				<p><strong>{name}</strong></p>
 				<p>{comment}</p>
@@ -87,17 +89,17 @@ class CommentCard extends Component{
 						<button
 						className='DelRespCommentStyle'				
 						onClick={()=>onDeleteComment(id)}
-						>Delete</button>
+						>Supprimer</button>
 						<button
 						className='DelRespCommentStyle'	
 						onClick={()=>{this.onCreateResponse(id)}}	
-						>Response</button>
+						>Répondre</button>
 						</div>
 						)
 					:   <button
 						className='DelRespCommentStyle'	
 						onClick={()=>{this.onCreateResponse(id)}}	
-						>Response</button>
+						>Répondre</button>
 				}				
 				</div>
 				<div className='commentStyle3'>							
@@ -123,7 +125,7 @@ class CommentCard extends Component{
 									<textarea
 									id={`responseArea${id}`}
 									className='textareaStyle'
-									placeholder='You need to be logged in to post a message.' 
+									placeholder='Vous devez être connecté pour envoyer un message.' 
 									rows="5" 
 									cols="70" 
 									style={{height:'80px',maxWidth:'500px',marginRight:'auto',marginLeft:'auto'}}
