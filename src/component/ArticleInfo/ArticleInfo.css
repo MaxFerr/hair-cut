@@ -1,5 +1,5 @@
 .submitCommentStyle{
-  width:60px;
+  width:50px;
   background-color: #4CAF50;
   color: white;
   padding: 4px;  
@@ -22,7 +22,9 @@ background-color: #45a049;
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  
 }
+
 
 .AddCommentStyle:hover{
 background-color: #45a049;
@@ -75,7 +77,7 @@ background-color: #45a049;
  .commentStyle2{
     margin-top: 10px;
     text-align:center;
-    max-width:600px;
+    max-width:550px;
     margin-right:2%;
     margin-left:2%;
     background-color:rgba(0,0,0,0.04);
@@ -83,4 +85,15 @@ background-color: #45a049;
     box-shadow: 2px 2px 5px grey;
     border-radius:10px;
 }
+.AddCommentStyle{
+  width:100px;
+  background-color: #4CAF50;
+  color: white;
+  padding: 4px;  
+  margin-right: 2px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-bottom: 10px;
+  }
 }

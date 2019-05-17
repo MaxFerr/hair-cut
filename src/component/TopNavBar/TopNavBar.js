@@ -7,7 +7,7 @@ const TopNavBar=({onChangeRoute,isLoggedIn,onClickLogout,user})=>{
 
 	if(isLoggedIn){
 		return (
-			<div style={{backgroundColor:'black',padding:'10px',paddingBottom:'40px'}}>
+			<div className='ftSize' style={{backgroundColor:'black',padding:'10px',paddingBottom:'40px'}}>
 		<div style={{marginTop:'10px'}}>
 		<div style={{float:'left'}} >
 			<Link className='topBtnHover' to={`/`} style={{padding:'5px',color:'white',textDecoration:'none'}}>Curly lo</Link>
@@ -24,7 +24,7 @@ const TopNavBar=({onChangeRoute,isLoggedIn,onClickLogout,user})=>{
 			)
 	}else{
 		return (
-		<div style={{backgroundColor:'black',padding:'10px',paddingBottom:'40px'}}>
+		<div className='ftSize' style={{backgroundColor:'black',padding:'10px',paddingBottom:'40px'}}>
 		<div style={{marginTop:'10px'}}>
 		<div style={{float:'left'}} >
 			<Link className='topBtnHover' to={`/`} style={{padding:'5px',color:'white',textDecoration:'none'}}>Curly lo</Link>
