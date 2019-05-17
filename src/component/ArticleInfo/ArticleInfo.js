@@ -167,8 +167,8 @@ class ArticleInfo extends Component{
 		style={{boxShadow: '2px 2px 2px grey', backgroundColor:'rgba(0,0,0,0.04)',borderRadius:'10px'}} >
 		</span>		
 		<img src={this.state.selectedArticle.image} alt='uploaded' 
-		style={{borderRadius:'10px', opacity:'0.4',marginTop:'-25px',minWidth:'50%', height:'200px',display: 'block',marginLeft:'auto',marginRight:'auto'}} />
-		<div style={{marginLeft:'15%',marginRight:'15%'}} >
+		style={{borderRadius:'10px', opacity:'0.4',marginTop:'-25px',maxWidth:'100%', height:'200px',display: 'block',marginLeft:'auto',marginRight:'auto'}} />
+		<div style={{marginLeft:'15%',marginRight:'15%',maxWidth:'100%'}} >
 		<h1>{this.state.selectedArticle.title} </h1>
 		<p style={{color:'rgba(0,0,0,0.5)',marginTop:'-15px'}} ><Moment format="DD/MM/YYYY">{this.state.selectedArticle.added}</Moment></p>		
 		<h3>{this.state.selectedArticle.secondtitle} </h3>
