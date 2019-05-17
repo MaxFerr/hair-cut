@@ -86,6 +86,12 @@ class Register extends Component{
 		invalidForm.textContent='Données invalides.';
 		}		
 	}
+
+	onRegPress=(events)=>{
+    if (events.charCode===13){
+      this.onRegister()    
+  		}
+	}
 	
 	render(){
 		if(this.state.isRegister){
@@ -114,6 +120,7 @@ class Register extends Component{
 					<span id='errorEmail'></span>
 					<p className='pRegStyle'>Mot de passe </p>
 					<input className='inputRegStype' type='password' placeholder='Mot de passe'
+					onKeyPress={this.onRegPress}
 					onChange={this.onPasschange}
 					/>
 					<br/>

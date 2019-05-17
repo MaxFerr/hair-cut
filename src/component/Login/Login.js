@@ -63,6 +63,12 @@ class Login extends Component{
 			})	
 		}		
 	}
+
+	onLogInPress=(events)=>{
+    if (events.charCode===13){
+      this.onLogIn()    
+  		}
+	}
 	
 	render(){
 		if(this.state.isRegister){
@@ -85,6 +91,7 @@ class Login extends Component{
 			className='inputLogStype'  
 			type='password' placeholder='Mot de passe'
 			onChange={this.onPasschange}
+			onKeyPress={this.onLogInPress}
 			/><br/>
 			<Link to={`/ForgotPass`}><p>Mot de passe oublié ?</p></Link>
 			<input

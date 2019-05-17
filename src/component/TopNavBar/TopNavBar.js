@@ -15,7 +15,7 @@ const TopNavBar=({onChangeRoute,isLoggedIn,onClickLogout,user})=>{
 			<Link className='topBtnHover' to={`/Contact`} style={{padding:'5px',color:'white',textDecoration:'none'}}>Contact</Link>
 		</div>
 		<div style={{float:'right',marginTop:'-15px'}}>
-			<p style={{color:'white',textDecoration:'none',display:'inline-block',marginRight:'10px'}} >{`Hi, ${user.name}`} </p>
+			<p style={{color:'white',padding:'5px',textDecoration:'none',display:'inline-block',marginRight:'10px'}} >{`Hi, ${user.name}`} </p>
 			<Link className='topBtnHover' to={`/`} onClick={onClickLogout} style={{padding:'5px',color:'white',textDecoration:'none',display:'inline-block'}}>Se déconnecter</Link>
 			
 		</div>	
