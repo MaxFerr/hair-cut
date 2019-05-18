@@ -165,15 +165,21 @@ class ArticleInfo extends Component{
 		<div data-aos="fade-in"  data-aos-offset="150" data-aos-duration="800"  style={{textAlign:'left',marginBottom:'20px'}}>
 		<span id='commentMsg' 
 		style={{boxShadow: '2px 2px 2px grey', backgroundColor:'rgba(0,0,0,0.04)',borderRadius:'10px'}} >
-		</span>		
-		<img src={this.state.selectedArticle.image} alt='uploaded' 
-		style={{borderRadius:'10px', opacity:'0.4',marginTop:'-25px',maxWidth:'100%', height:'200px',display: 'block',marginLeft:'auto',marginRight:'auto'}} />
-		<div style={{marginLeft:'15%',marginRight:'15%',maxWidth:'100%'}} >
-		<h1>{this.state.selectedArticle.title} </h1>
-		<p style={{color:'rgba(0,0,0,0.5)',marginTop:'-15px'}} ><Moment format="DD/MM/YYYY">{this.state.selectedArticle.added}</Moment></p>		
-		<h3>{this.state.selectedArticle.secondtitle} </h3>
-		<p>{this.state.selectedArticle.text}</p>
-		</div>
+		</span>
+		{this.state.selectedArticle.image===undefined && this.state.selectedArticle.title===undefined
+			?<p style={{color:'gray',textAlign:'center'}} >Loading<span className='loadingDot'>.</span><span className='loadingDot'>.</span><span className='loadingDot'>.</span></p>
+			:<div>
+				<img src={this.state.selectedArticle.image} alt='uploaded' 
+				style={{borderRadius:'10px', opacity:'0.4',marginTop:'-25px',maxWidth:'100%', height:'200px',display: 'block',marginLeft:'auto',marginRight:'auto'}} />
+				<div style={{marginLeft:'15%',marginRight:'15%',maxWidth:'100%'}} >
+				<h1>{this.state.selectedArticle.title} </h1>
+				<p style={{color:'rgba(0,0,0,0.5)',marginTop:'-15px'}} ><Moment format="DD/MM/YYYY">{this.state.selectedArticle.added}</Moment></p>		
+				<h3>{this.state.selectedArticle.secondtitle} </h3>
+				<p>{this.state.selectedArticle.text}</p>
+				</div>
+			</div>
+		}		
+		
 		<br/>
 		<div className='commentStyle2'>
 						<h3 style={{display:'inline-block',marginRight:'20%'}} >Commentaire</h3>

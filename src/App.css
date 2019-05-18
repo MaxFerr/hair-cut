@@ -1,6 +1,7 @@
 .App {
   text-align: center;
   background-color:rgba(0,0,0,0.04);
+  min-height: 600px;
 }
 
 .cont{	
@@ -40,6 +41,37 @@
     margin-top: 0px;
     margin-bottom: 0px;    
 }
+}
+
+@-webkit-keyframes fadeInS { 
+  0% { opacity:0; } 
+  50% { opacity:1; }
+  100% { opacity:0; }
+}
+@-moz-keyframes fadeInS {  
+  0% { opacity:0; } 
+  50% { opacity:1; }
+  100% { opacity:0; } 
+}
+@keyframes fadeInS {  
+  0% { opacity:0; } 
+  50% { opacity:1; }
+  100% { opacity:0; } 
+}
+
+.loadingDot {
+  opacity:0; 
+  -webkit-animation:fadeInS ease-in 2s infinite;  
+  -moz-animation:fadeInS ease-in 2s infinite;
+  animation:fadeInS ease-in 2s infinite;
+
+  -webkit-animation-fill-mode:forwards;  
+  -moz-animation-fill-mode:forwards;
+  animation-fill-mode:forwards;
+
+  -webkit-animation-duration:6s;
+  -moz-animation-duration:6s;
+  animation-duration:6s;
 }
 
 

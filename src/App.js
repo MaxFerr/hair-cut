@@ -127,13 +127,25 @@ class App extends Component {
         <TopNavBar user={this.state.user} isLoggedIn={this.state.isLoggedIn} onClickLogout={this.onClickLogout} onChangeRoute={this.onChangeRoute}/>
         <Title isAdmIn={this.state.isAdmIn}/>
         <div className='mainStyle'>
-        <MainNavBar  onSearchChange={this.onSearchChange} onChangeRoute={this.onChangeRoute}/>    
+        <MainNavBar  onSearchChange={this.onSearchChange} onChangeRoute={this.onChangeRoute}/>
+        {this.state.article.length<1
+          ?<div>          
           <Route path="/" exact render={(props)=>
+            <div className='cont' >
+            <p style={{color:'gray'}} >Loading<span className='loadingDot'>.</span><span className='loadingDot'>.</span><span className='loadingDot'>.</span></p>
+            <MoreInfo/>
+            </div>
+            }/>     
+          </div>
+          :<div>
+            <Route path="/" exact render={(props)=>
             <div className='cont' >
             <ArticleCard articles={filteredArticle} isLoggedIn={this.state.isLoggedIn} isAdmIn={this.state.isAdmIn} onClickArticle={this.onClickArticle} />
             <MoreInfo/>
             </div>
-          }/>                     
+            }/>        
+          </div>
+        }       
         <Route path="/Login" exact render={(props)=><Login loadUser={this.loadUser} checkIfLoggedIn={this.checkIfLoggedIn} checkIfAdmIn={this.checkIfAdmIn} />}/>
         <Route path="/Register" exact render={(props)=><Register loadUser={this.loadUser} checkIfLoggedIn={this.checkIfLoggedIn} />}/> 
         <Route path="/Beginner" exact render={(props)=><Beginner/>}/>
