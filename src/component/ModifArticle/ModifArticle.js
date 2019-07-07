@@ -191,18 +191,20 @@ class ModifArticle extends Component{
 	}
 
 	render(){
+		const {isAdmIn,singleArticle}=this.props
+		const {articleMod,image}=this.state
 	return (
 		<div>
-		{this.props.isAdmIn
+		{isAdmIn
 			?( <div>
-				{this.state.articleMod
+				{articleMod
 				?<Redirect to='/' />
 				:(<div>
 					<div style={{minHeight:'1000px'}} >
 				<h1>Modifier l'article</h1>
 					<p className='modpStyle' style={{marginBottom:'10px'}} >Image actuelle</p>
 					<div style={{maxWidth:'700px',marginLeft:'auto',marginRight:'auto'}} >
-					<img src={this.props.singleArticle.image} alt='modif' style={{width:'80%',height:'auto'}} />
+					<img src={singleArticle.image} alt='modif' style={{width:'80%',height:'auto'}} />
 					</div>
 					<p className='modpStyle'>Nouvelle image</p>
 					<input
@@ -214,25 +216,25 @@ class ModifArticle extends Component{
 					disabled 
 					/>					
 					<br/>
-								{this.state.image?
-									<p className='pStyle' style={{marginTop:'35px',color:'green'}} ><em>{this.state.image.name}</em></p>
+								{image?
+									<p className='pStyle' style={{marginTop:'35px',color:'green'}} ><em>{image.name}</em></p>
 									:<p className='pStyle' style={{marginTop:'35px'}}><em>Aucun fichier sélectionné.</em></p>
 								}
 							<p className='pStyle' style={{marginTop:'25px'}} >Lien de l'image </p>
 												<input className='inputStype'
 												onChange={this.onLinkchange} 
 												type='text' 
-												placeholder={`${this.props.singleArticle.image}`}/>						
+												placeholder={`${singleArticle.image}`}/>						
 						<p className='modpStyle' style={{marginTop:'20px'}} >Titre</p>
 						<input
 						className='modinputStype' 
 						onChange={this.onTitleChange} 
 						type='text' 
-						placeholder={`${this.props.singleArticle.title}`} />
+						placeholder={`${singleArticle.title}`} />
 							<p className='modpStyle'>Deuxième titre</p>
 							<input
 							className='modinputStype'  
-							type='text' placeholder={`${this.props.singleArticle.secondtitle}`}
+							type='text' placeholder={`${singleArticle.secondtitle}`}
 							onChange={this.onSecondtitleChange}
 							/>
 				<p className='modpStyle'>Text</p>
@@ -240,7 +242,7 @@ class ModifArticle extends Component{
 				className='modinputStype'  
 				onChange={this.onTextchange} 
 				type='text' 
-				placeholder={`${this.props.singleArticle.text}`}/>
+				placeholder={`${singleArticle.text}`}/>
 				<br/>
 				<p style={{display:'inline-block',marginRight:'5px'}} >Favoris ?  </p><input onChange={this.onFavchange} type='checkbox' />
 				<br/>

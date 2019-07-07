@@ -3,7 +3,9 @@ import './CommentCard.css';
 import Moment from 'react-moment';
 import AOS from 'aos';
 import 'aos/dist/aos.css'; 
-AOS.init();
+AOS.init({
+  disable:'mobile'
+});
 
 class CommentCard extends Component{
 	constructor(props){
@@ -13,7 +15,8 @@ class CommentCard extends Component{
 		}
 	}
 
-	onCreateResponse=(id)=>{			
+	onCreateResponse=(id)=>{
+	//text area on commentresp-- each response must have their own textarea so they all have a different id 		
 			var a = document.getElementById(`myDIV2${id}`);
 			var b = document.getElementById(`secondDiv2${id}`);
 			if (a.style.display === "none") {
@@ -37,6 +40,10 @@ class CommentCard extends Component{
 	}
 
 	onResponse=(id)=>{
+		//text area on commentresp-- each response must have their own textarea and button so they all have a different id 	
+		const resetField2=document.getElementById(`responseArea${id}`);
+		const responseSent=document.getElementById(`responseSent${id}`);
+		const responseNotSent=document.getElementById(`responseNotSent${id}`);
   	fetch('https://powerful-everglades-57723.herokuapp.com/sendResponse',{
 				method:'post',
 				headers:{'Content-Type':'application/json'},
@@ -52,11 +59,10 @@ class CommentCard extends Component{
 				return response.json()
 			})
 			.then(respcommentId=>{				
-			if(respcommentId.m_commentresp_id){				
-				const resetField2=document.getElementById(`responseArea${id}`);
-				resetField2.value='';
-				const responseSent=document.getElementById(`responseSent${id}`);
+			if(respcommentId.m_commentresp_id){
+				resetField2.value='';				
 				responseSent.textContent='Réponse envoyée !'
+				//fetching commentsresp to update the state like that we can see right away the response
 				fetch(`https://powerful-everglades-57723.herokuapp.com/commentresponse/${this.props.prm}`)
 				.then(response=>{			
 					return response.json()
@@ -65,10 +71,8 @@ class CommentCard extends Component{
 					this.props.updateCommentResp(data)			
 				})
 			
-			}else{
-				const resetField2=document.getElementById(`responseArea${id}`);
-				resetField2.value='';
-				const responseNotSent=document.getElementById(`responseNotSent${id}`);
+			}else{				
+				resetField2.value='';				
 				responseNotSent.textContent=`La réponse n'a pas pu être envoyée.`
 			}
 		})	
@@ -76,7 +80,7 @@ class CommentCard extends Component{
 	
 
 	render(){
-		const {comment,name,date,id,onDeleteComment}=this.props;		
+		const {comment,name,date,id,onDeleteComment,isAdmIn,isLoggedIn}=this.props;		
 		return(
 			<div data-aos="fade-in"  data-aos-offset="150" data-aos-duration="800" className='commentStyle' >		
 		<div style={{marginLeft:'6%'}}>
@@ -84,7 +88,7 @@ class CommentCard extends Component{
 				<p>{comment}</p>
 				<p style={{opacity:'0.5'}}><em><Moment fromNow>{date}</Moment></em></p>
 				<div style={{marginTop:'10px',marginBottom:'5px'}}>
-				{this.props.isAdmIn
+				{isAdmIn
 					?(<div>
 						<button
 						className='DelRespCommentStyle'				
@@ -104,7 +108,7 @@ class CommentCard extends Component{
 				</div>
 				<div className='commentStyle3'>							
 						<div id={`myDIV2${id}`} style={{height:'150px',display:'none',marginRight:'15%',marginLeft:'15%',marginBottom:'-20px'}} >						
-							{this.props.isLoggedIn
+							{isLoggedIn
 								?(<div>
 									<textarea
 									id={`responseArea${id}`}

@@ -4,7 +4,9 @@ import './Article.css';
 import Moment from 'react-moment';
 import AOS from 'aos';
 import 'aos/dist/aos.css'; 
-AOS.init();
+AOS.init({
+  disable:'mobile'
+});
 
 
 const Article=({title,secondtitle,onClickArticle,id,image,text,added,favorite,isAdmIn})=>{	

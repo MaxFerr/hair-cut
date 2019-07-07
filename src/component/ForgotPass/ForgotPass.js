@@ -6,17 +6,32 @@ class ForgotPass extends React.Component{
 	constructor(props){
 		super(props);
 		this.state={
-			email:''			
+			email:'',
+			errorEmailChange:true			
 		}
 	}
 
 	onEmailChange =(event)=>{
-		this.setState({email:event.target.value})
+		this.setState({email:event.target.value});
+		if(event.target.value.split('').filter(x => x === '{').length >= 1){
+			this.setState({errorEmailChange:true});
+		}else{
+			this.setState({errorEmailChange:false});
+		}
+
 	}
 	
 	
 	onResetPass=()=>{
-		fetch('https://powerful-everglades-57723.herokuapp.com/forgot',{
+		const errorEmailChangeMsg=document.getElementById("errorEmail");
+		const correctEmail=document.getElementById("correctEmail");
+		const forgetDiv=document.getElementById("forgetDiv");
+		const correctDiv=document.getElementById("correctDiv")
+		if(this.state.errorEmailChange){
+			errorEmailChangeMsg.innerHTML = "Email incorrecte !";
+			errorEmailChangeMsg.style.color='red';
+		}else{
+			fetch('https://powerful-everglades-57723.herokuapp.com/forgot',{
 			method:'post',
 			headers:{'Content-Type':'application/json'},
 			body:JSON.stringify({
@@ -28,14 +43,16 @@ class ForgotPass extends React.Component{
 		return response.json()
 	})
 	.then(data=>{
-		if(data==='Wrong email !'){			
-				document.getElementById("errorEmail").innerHTML = "Email incorrecte !";
+		if(data==="Wrong email !" ||data==="Incorrect info."){			
+				errorEmailChangeMsg.innerHTML = "Email incorrecte !";
 			}else {				
-				document.getElementById("correctEmail").innerHTML = "Vérifiez votre boîte mail! Un mail a été envoyé.";
-				document.getElementById("forgetDiv").style.display = "none";
-				document.getElementById("correctDiv").style.display = "block";
+				correctEmail.innerHTML = "Vérifiez votre boîte mail! Un mail a été envoyé.";
+				forgetDiv.style.display = "none";
+				correctDiv.style.display = "block";
 			}
 		})
+		}
+		
 	}
 render(){
 	return (

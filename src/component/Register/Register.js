@@ -16,10 +16,23 @@ class Register extends Component{
 		}
 	}
 
+	check=(event)=>{
+		if(event.split('').filter(x => x === '{').length >= 1){
+				return true
+			}else{
+				return false
+			}
+	}
+
 	onEmailchange=(event)=>{
 		this.setState({email:event.target.value})
-		const errorEmail=document.getElementById('errorEmail');			
-		if(event.target.value.split('').filter(x => x === '@').length === 1){
+		const errorEmail=document.getElementById('errorEmail');
+		if (this.check(event.target.value)){
+			errorEmail.style.color='red';
+			errorEmail.textContent='Email invalide.'
+			this.setState({errorEmail:true});
+		}else{
+			if(event.target.value.split('').filter(x => x === '@').length === 1){
 			errorEmail.textContent=''
 			this.setState({errorEmail:false})
 		}else{
@@ -28,12 +41,14 @@ class Register extends Component{
 			errorEmail.textContent='Email invalide.'
 			
 		}
+		}			
+		
 	}
 
 	onPasschange=(event)=>{
 		this.setState({password:event.target.value})
 		const errorPassword=document.getElementById('errorPassword');
-		if(event.target.value.length<=5 || event.target.value.split('').filter(x => x === '{').length === 1){
+		if(event.target.value.length<=5 || this.check(event.target.value)){
 			this.setState({errorPassword:true});			
 			errorPassword.style.color='red';
 			errorPassword.textContent=`Le mot de passe est trop court. Vous avez besoin d'au moins 5 caractères.`
@@ -47,7 +62,7 @@ class Register extends Component{
 	onNamechange=(event)=>{
 		this.setState({name:event.target.value})
 		const errorName=document.getElementById('errorName');		
-		if(event.target.value.length<3 || event.target.value.split('').filter(x => x === '{').length === 1){
+		if(event.target.value.length<3 || this.check(event.target.value)){
 			this.setState({errorName:true});			
 			errorName.style.color='red';
 			errorName.textContent=`Le nom d'utilisateur est trop court. Vous avez besoin d'au moins 3 caractères.`
@@ -58,6 +73,8 @@ class Register extends Component{
 	}
 
 	onRegister=()=>{
+		const {loadUser,checkIfLoggedIn}=this.props;
+		const invalidForm=document.getElementById('invalidForm');
 	if(!this.state.errorName && !this.state.errorPassword && !this.state.errorEmail){
 		fetch('https://powerful-everglades-57723.herokuapp.com/register',{
 			method:'post',
@@ -73,15 +90,16 @@ class Register extends Component{
 		})
 		.then(user=>{
 			if(user.m_user_id){
-				this.props.loadUser(user);
-				this.props.checkIfLoggedIn(user);
+				loadUser(user);
+				checkIfLoggedIn(user);
 				this.setState({isRegister:true})
 			}else{
+				invalidForm.style.color='red';
+				invalidForm.textContent='Email ou nom d\'utilisateur déja utilisé.';
 				return "Email or username already used."
 			}				
 		})
-	}else{
-		const invalidForm=document.getElementById('invalidForm');
+	}else{		
 		invalidForm.style.color='red';
 		invalidForm.textContent='Données invalides.';
 		}		
@@ -94,7 +112,8 @@ class Register extends Component{
 	}
 	
 	render(){
-		if(this.state.isRegister){
+		const {isRegister}=this.state;
+		if(isRegister){
 			return (
 				<Redirect to='/' />
 				)

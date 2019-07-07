@@ -3,9 +3,12 @@ import CommentCard from '../CommentCard/CommentCard.js';
 import ResponseCard from '../ResponseCard/ResponseCard.js';
 
 const Comment=({isLoggedIn,isAdmIn,comments,onResponse,commentsresp,user,prm,updateCommentResp,onDeleteComment,onDeleteCommentResp})=>{
+	//making a loop in a loop to display comments and the corresponding commentsResp
 	const RespLoop=(params)=>{
 			const RepMap=commentsresp.map((commentsresp,i)=>{
-				if(commentsresp.comment_id===params){	 			
+				//if comments got resp -- 
+				if(commentsresp.comment_id===params){
+				// loop thru all the commentsresp where they have a corrsponding id and create a responseCard for each commentsResp	 			
 	 			return (
 	 					<ResponseCard
 						key={i}
@@ -19,12 +22,16 @@ const Comment=({isLoggedIn,isAdmIn,comments,onResponse,commentsresp,user,prm,upd
 						/>
 	 				)
 	 			}
+	 			//if there are no commentsResp return false and stop the loop
 	 			return false
 			})
+			//else we return the result of the loop
 			return RepMap
 	 }
 
-	const CommentLoop=comments.map((comment,i)=>{			
+	const CommentLoop=comments.map((comment,i)=>{
+	//looping thru all the comments and creating a commentCard for each comments
+	//looping thru the commentsResp and display them			
 					return (
 						<div key={i}>						
 						<CommentCard
@@ -40,7 +47,7 @@ const Comment=({isLoggedIn,isAdmIn,comments,onResponse,commentsresp,user,prm,upd
 							onDeleteComment={onDeleteComment}
 							isAdmIn={isAdmIn}
 							isLoggedIn={isLoggedIn}
-						/>
+						/>						
 						{RespLoop(comment.m_comment_id)}
 						</div>
 						)			

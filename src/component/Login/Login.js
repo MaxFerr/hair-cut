@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {Redirect,Link} from "react-router-dom";
 import './Login.css';
 
+
 class Login extends Component{
 	constructor(props){
 		super(props);
@@ -14,27 +15,41 @@ class Login extends Component{
 		}
 	}
 
+	check=(event)=>{
+		if(event.split('').filter(x => x === '{').length >= 1){
+				return true
+			}else{
+				return false
+			}
+	}
+
 	onEmailchange=(event)=>{
 		this.setState({email:event.target.value})
-		if(event.target.value.split('').filter(x => x === '{').length === 1){
+		if(this.check(event.target.value)){
 			this.setState({EmailErrorLog:true})
 		}else{
 			this.setState({EmailErrorLog:false})
 		}
+		
 	}
 
 	onPasschange=(event)=>{
 		this.setState({password:event.target.value})
-		if(event.target.value.split('').filter(x => x === '{').length === 1){
+		if(this.check(event.target.value)){
 			this.setState({PassErrorLog:true})
 		}else{
 			this.setState({PassErrorLog:false})
-		}
+		}		
 	}
 
 	onLogIn=()=>{
-		if(this.state.EmailErrorLog || this.state.PassErrorLog){
-			console.log('error')
+		const loginErrorMsg=document.getElementById('loginErrorMsg');
+		const pass=document.getElementById('pass');
+		const {loadUser,checkIfLoggedIn,checkIfAdmIn}=this.props;
+		const {EmailErrorLog,PassErrorLog}=this.state;
+		if(EmailErrorLog || PassErrorLog){
+				loginErrorMsg.style.color='red';
+				loginErrorMsg.textContent='Remplissez les champs !';
 		}else{
 			fetch('https://powerful-everglades-57723.herokuapp.com/login',{
 			method:'post',
@@ -49,15 +64,12 @@ class Login extends Component{
 		})
 		.then(user=>{
 			if(user.m_user_id){
-				this.props.loadUser(user);
-				this.props.checkIfLoggedIn(user);
-				this.props.checkIfAdmIn(user);
+				loadUser(user);
+				checkIfLoggedIn(user);
+				checkIfAdmIn(user);
 				this.setState({isRegister:true});
 			}else{
-				const loginErrorMsg=document.getElementById('loginErrorMsg');
-				loginErrorMsg.style.color='red';
-				loginErrorMsg.textContent='Mauvais email ou Mot de passe.';
-				const pass=document.getElementById('pass');
+				loginErrorMsg.textContent='Mauvais email ou Mot de passe.';				
 				pass.value='';
 				}				
 			})	
@@ -71,7 +83,8 @@ class Login extends Component{
 	}
 	
 	render(){
-		if(this.state.isRegister){
+		const {isRegister}=this.state
+		if(isRegister){
 			return (
 				<Redirect to='/' />
 				)

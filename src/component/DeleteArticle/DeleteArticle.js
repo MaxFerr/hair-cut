@@ -43,13 +43,15 @@ class DeleteArticle extends Component{
 		
 	}
 
-	render(){		
+	render(){
+	const {isAdmIn,singleArticle}= this.props
+	const {deleted}= this.state		
 	return (
 		<div>
-		{this.props.isAdmIn
+		{isAdmIn
 			?(
 				<div>
-					{this.state.deleted ?
+					{deleted ?
 						<Redirect to='/' />
 					:<div style={{minHeight:'400px'}} >
 					<span id='deleteMsg' 
@@ -57,9 +59,9 @@ class DeleteArticle extends Component{
     				borderRadius:'10px'}} ></span>
 					<h1>Voulez-vous supprimer cet article ?</h1>
 					<div style={{textAlign:'left', marginLeft:'15%',marginRight:'15%'}} >
-					<p>Titre : {this.props.singleArticle.title} </p>
-					<p>Deuxième titre : {this.props.singleArticle.secondtitle} </p>
-					<p>Text : {this.props.singleArticle.text} </p>
+					<p>Titre : {singleArticle.title} </p>
+					<p>Deuxième titre : {singleArticle.secondtitle} </p>
+					<p>Text : {singleArticle.text} </p>
 					</div>
 					<br/>			
 					<button

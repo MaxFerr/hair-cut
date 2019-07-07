@@ -4,7 +4,9 @@ import ico from '../../icon1.png';
 import Moment from 'react-moment';
 import AOS from 'aos';
 import 'aos/dist/aos.css'; 
-AOS.init();
+AOS.init({
+  disable:'mobile'
+});
 
 const ResponseCard=({resp,name,date,id,onDeleteCommentResp,isAdmIn})=>{	
 	return (

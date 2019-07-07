@@ -14,9 +14,17 @@ class ResetPassword extends React.Component{
 		}
 	}
 
+	check=(event)=>{
+		if(event.split('').filter(x => x === '{').length >= 1){
+				return true
+			}else{
+				return false
+			}
+	}
+
 	onPasswordChange=(event)=>{
 		this.setState({passwordChange:event.target.value})
-		if(event.target.value.length < 6){
+		if(event.target.value.length < 6 && this.check(event.target.value) ){
 			this.setState({errorPassword:false});
 		}else{
 			this.setState({errorPassword:true});
@@ -25,7 +33,7 @@ class ResetPassword extends React.Component{
 
 	onPasswordChangeConfirm=(event)=>{
 		this.setState({passwordChangeConfirm:event.target.value})
-		if(event.target.value.length < 6){
+		if(event.target.value.length < 6 && this.check(event.target.value)){
 			this.setState({errorPassword:false});
 		}else{
 			this.setState({errorPassword:true});
@@ -35,7 +43,10 @@ class ResetPassword extends React.Component{
 	onChangePassword=()=>{
 		const a=document.getElementById('noMatch');
 		const b=document.getElementById('errorPasswordMsg');
-		if(this.state.passwordChange===this.state.passwordChangeConfirm && this.state.errorPassword ){
+		if(!this.state.errorPassword){
+			b.innerHTML="Mauvaises informations."
+		}else{
+			if(this.state.passwordChange===this.state.passwordChangeConfirm && this.state.errorPassword ){
 			a.innerHTML="";
 			fetch('https://powerful-everglades-57723.herokuapp.com/updatePassword',{
 				method:'put',
@@ -61,7 +72,9 @@ class ResetPassword extends React.Component{
 			a.innerHTML="Les mots de passe ne correspondent pas.";
 		}else{
 			a.innerHTML=""
-		}
+			}
+		}		
+		
 	}
 	
 	componentDidMount(){
@@ -79,8 +92,9 @@ class ResetPassword extends React.Component{
 	}
 	
 	render(){
-		if(!this.state.isPassChanged){
-			if(this.state.isValidToken){
+		const {isPassChanged,isValidToken}= this.state;
+		if(!isPassChanged){
+			if(isValidToken){
 				return (			
 					<div id='forgetDiv' style={{width: 'auto' ,height: '350px'}}>
 					<h1 >Changer votre mot de passe</h1>
